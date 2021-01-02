@@ -11,20 +11,26 @@ class HompePage extends StatefulWidget {
 
 class _HompePageState extends State<HompePage> {
   List<bool> actIndbottom = [false, false, true, false, false];
-  bool _isPlayerReady = false;
+  YoutubePlayerController _controller;
 
   @override
   void initState() {
     super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: 'dVfmHhDs-80',
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: true,
+      ),
+    );
   }
 
-  YoutubePlayerController _controller = YoutubePlayerController(
-    initialVideoId: 'dVfmHhDs-80',
-    flags: YoutubePlayerFlags(
-      autoPlay: true,
-      mute: true,
-    ),
-  );
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _controller?.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +256,8 @@ class _HompePageState extends State<HompePage> {
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.bold),
-                    ), SizedBox(
+                    ),
+                    SizedBox(
                       height: 20,
                     ),
                     Column(
@@ -293,7 +300,8 @@ class _HompePageState extends State<HompePage> {
                               ),
                               onTap: () => _launchURL(context,
                                   'https://www.youtube.com/watch?v=AUBSy34nRwI')),
-                        ), SizedBox(
+                        ),
+                        SizedBox(
                           height: 20,
                         ),
                         Container(
@@ -334,7 +342,8 @@ class _HompePageState extends State<HompePage> {
                               ),
                               onTap: () => _launchURL(context,
                                   'https://www.facebook.com/MunicipioLampa/videos/932380646926269')),
-                        ), SizedBox(
+                        ),
+                        SizedBox(
                           height: 20,
                         ),
                         Container(

@@ -10,7 +10,7 @@ class AtractivosModel {
 
   AtractivosModel.fromJson(Map<String, dynamic> json) {
     if (json['atractivos'] != null) {
-      _atractivos = new List<Atractivos>();
+      _atractivos = new List<Atractivos>.empty(growable: true);
       json['atractivos'].forEach((v) {
         _atractivos.add(new Atractivos.fromJson(v));
       });

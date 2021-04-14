@@ -47,8 +47,8 @@ class ItemAtractivo extends StatelessWidget {
                         ),
                       ),
                       placeholder: (context, url) =>
-                          CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                          Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) => Center(child: Icon(Icons.error)),
                     ),
                   ),
                   distancia != ''
@@ -56,7 +56,7 @@ class ItemAtractivo extends StatelessWidget {
                           bottom: 0,
                           right: 0,
                           child: Text(
-                            'a $distancia',
+                            distancia,
                             style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.pink,
